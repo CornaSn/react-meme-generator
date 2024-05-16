@@ -1,3 +1,11 @@
+import FetchData from './Components/FetchData';
+import Header from './Components/Header';
+
 export default function App() {
-  return <div>Hello World!</div>;
+  return (
+    <div>
+      <Header />
+      <FetchData />
+    </div>
+  );
 }
