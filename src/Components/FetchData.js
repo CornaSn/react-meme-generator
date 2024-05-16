@@ -9,17 +9,22 @@ export default function FetchData() {
         return response.json();
       })
       .then((data) => {
-        setMemes(data);
+        const memeUrls = data.map((meme) => meme.blank);
+        setMemes(memeUrls);
       })
       .catch((err) => console.log(err));
   }, []);
 
-  console.log(FetchData);
-
   return (
     <div>
-      {memes.map((meme) => (
-        <img key={meme.id} src={meme.blank} alt="alt" width={100} />
+      {memes.map((imageUrl, index) => (
+        <img
+          key="Meme.id"
+          src={imageUrl}
+          alt={`Meme ${index}`}
+          height={80}
+          data-test-id="meme-image"
+        />
       ))}
     </div>
   );
