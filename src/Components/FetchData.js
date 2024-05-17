@@ -15,32 +15,37 @@ export default function FetchData() {
       .catch((err) => console.log(err));
   }, []);
 
-  // console.log(FetchData);
+  console.log(FetchData);
 
   function handleClick(event) {
-    const randomImg = Math.floor(Math.random() * memes.length);
-    setChangeImg(randomImg);
+    if (memes.length > 0) {
+      const randomImg = Math.floor(Math.random() * memes.length);
+      setChangeImg(randomImg);
+    }
   }
 
   return (
     <>
       <div>
         <div>
-          <img
-            src={memes[changeImg].blank}
-            alt={memes[changeImg].name}
-            height={500}
-            role="presentation"
-            onClick={handleClick}
-          />
+          {memes.length > 0 && (
+            <img
+              key={memes.id}
+              src={memes[changeImg].blank}
+              alt={memes[changeImg]}
+              height={350}
+              role="presentation"
+              onClick={handleClick}
+            />
+          )}
         </div>
         <br />
         <br />
         <br />
       </div>
       <div>
-        {memes.map((meme) => (
-          <img key={meme[0]} src={meme.blank} alt="alt" height={100} />
+        {memes.map((meme, index) => (
+          <img key={meme.index} src={meme.blank} alt="meme" height={100} />
         ))}
       </div>
     </>
