@@ -1,45 +1,42 @@
-.body {
-  padding: 0px;
-  margin: 0px;
+body {
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #dcdcdc; /* Hintergrundfarbe für bessere Sichtbarkeit */
 }
 
 .style-form {
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
+
 .container {
-  background-color: #12035828;
-  width: 90%;
-  margin: 2rem;
+  background-color: #b8b8d6; /* Leichte Hintergrundfarbe für Kontrast */
+  max-width: 50%; /* Maximalbreite für die Containergröße */
   padding: 1.5rem;
-  border: 2px solid black;
+  margin: auto;
   border-radius: 3%;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
     'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
-.image-text {
-  position: relative;
-  margin: 6px;
-  padding: 6px;
-  color: rgb(254, 254, 255);
-  font-size: 2.7vw;
-  text-transform: uppercase;
-  text-shadow: 3px 3px 3px rgb(3, 1, 26);
-  letter-spacing: 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .text-label {
   display: flex;
   flex-direction: column;
   margin-bottom: 6px;
-  font-size: 30px;
+  font-size: 20px;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-
+  width: 100%;
   :hover {
     background-color: rgb(219, 235, 238);
   }
@@ -49,9 +46,9 @@
 }
 
 .text-input {
-  width: 50vw;
+  width: 100%;
   padding-block: 0.75rem;
-  margin: 6px;
+  margin: 6px 0;
   font-size: 20px;
   border: 1px solid rgba(0, 4, 255, 0.918);
   border-radius: 5px;
@@ -60,25 +57,49 @@
   text-align: left;
 }
 
-.text-input.top {
-  top: -50px;
-}
-
-.text-input.bottom {
-  bottom: 10px;
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin: 1rem 0;
 }
 
 .image {
-  height: 500px;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
+  height: auto;
+}
+
+.image-text {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgb(254, 254, 255);
+  font-size: 2vw;
+  text-transform: uppercase;
+  text-shadow: 3px 3px 3px rgb(3, 1, 26);
+  letter-spacing: 2px;
+  white-space: nowrap;
+  margin: 0;
+}
+
+.image-text.top {
+  top: 10px;
+}
+
+.image-text.bottom {
+  bottom: 10px;
 }
 
 .download-button {
-  font-size: 40px;
-  margin-top: px;
+  font-size: 35px;
+  margin-top: 20px;
+  padding: 14px 40px;
+  border: none;
+  border-radius: 12px;
+  transition-duration: 0.4s;
 }
-
-.image-wrapper {
+.download-button:hover {
+  background-color: rgba(13, 133, 9, 0.795);
+  color: white;
 }
