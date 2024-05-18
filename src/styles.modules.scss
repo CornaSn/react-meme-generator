@@ -1,0 +1,84 @@
+.body {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+.style-form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container {
+  background-color: #12035828;
+  width: 90%;
+  margin: 2rem;
+  padding: 1.5rem;
+  border: 2px solid black;
+  border-radius: 3%;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.image-text {
+  position: relative;
+  margin: 6px;
+  padding: 6px;
+  color: rgb(254, 254, 255);
+  font-size: 2.7vw;
+  text-transform: uppercase;
+  text-shadow: 3px 3px 3px rgb(3, 1, 26);
+  letter-spacing: 2px;
+}
+
+.text-label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 6px;
+  font-size: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+
+  :hover {
+    background-color: rgb(219, 235, 238);
+  }
+  :focus {
+    background-color: hwb(157 54% 7% / 0.699);
+  }
+}
+
+.text-input {
+  width: 50vw;
+  padding-block: 0.75rem;
+  margin: 6px;
+  font-size: 20px;
+  border: 1px solid rgba(0, 4, 255, 0.918);
+  border-radius: 5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: left;
+}
+
+.text-input.top {
+  top: -50px;
+}
+
+.text-input.bottom {
+  bottom: 10px;
+}
+
+.image {
+  height: 500px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.download-button {
+  font-size: 40px;
+  margin-top: px;
+}
+
+.image-wrapper {
+}

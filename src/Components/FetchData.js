@@ -36,7 +36,7 @@ export default function FetchData() {
               key={memes[imageIndex].id}
               src={memes[imageIndex].blank}
               alt={memes[imageIndex].name}
-              height={350}
+              height={500}
               role="presentation"
               onClick={handleClickBigImg}
             />
