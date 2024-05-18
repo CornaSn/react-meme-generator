@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 
 export default function FetchData() {
-  // Initialize states variable
+  // Initialize states variables
   const [memes, setMemes] = useState([]);
-  const [changeImg, setChangeImg] = useState(0);
+  const [imageIndex, setImageIndex] = useState(0);
 
   //Fetch image data from website into an array as an object
   useEffect(() => {
@@ -23,7 +23,7 @@ export default function FetchData() {
   //Get random meme image
   function handleClickBigImg(event) {
     const randomImg = Math.floor(Math.random() * memes.length);
-    setChangeImg(randomImg);
+    setImageIndex(randomImg);
   }
 
   return (
@@ -33,9 +33,9 @@ export default function FetchData() {
           {/* Check if fetched array is loaded */}
           {memes.length > 0 && (
             <img
-              key={memes[changeImg].id}
-              src={memes[changeImg].blank}
-              alt={memes[changeImg].name}
+              key={memes[imageIndex].id}
+              src={memes[imageIndex].blank}
+              alt={memes[imageIndex].name}
               height={350}
               role="presentation"
               onClick={handleClickBigImg}
@@ -46,6 +46,7 @@ export default function FetchData() {
         <br />
         <br />
       </div>
+      <div>Meme Template: Choose your favorite Meme</div>
       <div>
         {memes.length > 0 &&
           memes.map((meme, index) => (
@@ -56,8 +57,9 @@ export default function FetchData() {
               height={100}
               role="presentation"
               // Select Image from Image Template
-              onClick={(index) => {
-                setChangeImg(index);
+              onClick={(event) => {
+                setImageIndex(index);
+                console.log(event);
               }}
             />
           ))}
