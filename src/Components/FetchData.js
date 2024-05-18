@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 
 export default function FetchData() {
+  // Initialize states variable
   const [memes, setMemes] = useState([]);
   const [changeImg, setChangeImg] = useState(0);
 
+  //Fetch image data from website into an array as an object
   useEffect(() => {
     fetch('https://api.memegen.link/templates/')
       .then((response) => {
@@ -15,27 +17,28 @@ export default function FetchData() {
       .catch((err) => console.log(err));
   }, []);
 
-  console.log(FetchData);
+  // Check fetch data
+  memes.length > 0 ? console.log(memes) : console.log('Not loaded');
 
-  function handleClick(event) {
-    if (memes.length > 0) {
-      const randomImg = Math.floor(Math.random() * memes.length);
-      setChangeImg(randomImg);
-    }
+  //Get random meme image
+  function handleClickBigImg(event) {
+    const randomImg = Math.floor(Math.random() * memes.length);
+    setChangeImg(randomImg);
   }
 
   return (
     <>
       <div>
         <div>
+          {/* Check if fetched array is loaded */}
           {memes.length > 0 && (
             <img
-              key={memes.id}
+              key={memes[changeImg].id}
               src={memes[changeImg].blank}
-              alt={memes[changeImg]}
+              alt={memes[changeImg].name}
               height={350}
               role="presentation"
-              onClick={handleClick}
+              onClick={handleClickBigImg}
             />
           )}
         </div>
@@ -44,9 +47,20 @@ export default function FetchData() {
         <br />
       </div>
       <div>
-        {memes.map((meme, index) => (
-          <img key={meme.index} src={meme.blank} alt="meme" height={100} />
-        ))}
+        {memes.length > 0 &&
+          memes.map((meme, index) => (
+            <img
+              key={meme.index}
+              src={meme.blank}
+              alt="meme"
+              height={100}
+              role="presentation"
+              // Select Image from Image Template
+              onClick={(index) => {
+                setChangeImg(index);
+              }}
+            />
+          ))}
       </div>
     </>
   );
