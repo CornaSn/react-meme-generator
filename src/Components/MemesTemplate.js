@@ -15,7 +15,11 @@ export default function MemesTemplate(props) {
     const searchMemeIndex = props.memesArray.findIndex((element) => {
       return findMatchingMeme(element, userSearch);
     });
-    props.setImageIndex(searchMemeIndex);
+    if (searchMemeIndex >= 0) {
+      props.setImageIndex(searchMemeIndex);
+    } else {
+      props.setImageIndex(0);
+    }
   }
 
   return (
