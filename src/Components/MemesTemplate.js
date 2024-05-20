@@ -3,7 +3,20 @@ import { useState } from 'react';
 export default function MemesTemplate(props) {
   const [userSearch, setUserSearch] = useState('');
 
-  function handleClickSearch(event) {}
+  function findMatchingMeme(memesData, name) {
+    if (memesData.name.includes(name)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  function handleClickSearch(event) {
+    const searchMemeIndex = props.memesArray.findIndex((element) => {
+      return findMatchingMeme(element, userSearch);
+    });
+    props.setImageIndex(searchMemeIndex);
+  }
 
   return (
     <>
