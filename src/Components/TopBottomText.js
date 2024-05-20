@@ -1,8 +1,14 @@
 import { useState } from 'react';
 
-export default function TopBottomText() {
+export default function TopBottomText(props) {
   const [topTextInput, setTopTextInput] = useState('');
   const [bottomTextInput, setBottomTextInput] = useState('');
+
+  //Get random meme image
+  function handleClickBigImg(event) {
+    const randomImg = Math.floor(Math.random() * props.memesArray.length);
+    props.setImageIndex(randomImg);
+  }
 
   return (
     <form onSubmit={(event) => event.preventDefault()} className="style-form">
@@ -30,8 +36,10 @@ export default function TopBottomText() {
         <div className="image-wrapper">
           <img
             className="image"
-            src="https://api.memegen.link/images/aag.png"
-            alt="testOverlay"
+            src={props.memesArray[props.imageIndex].blank}
+            alt={props.memesArray[props.imageIndex].name}
+            role="presentation"
+            onClick={handleClickBigImg}
           />
           <h1 className="image-text top">{topTextInput}</h1>
           <h1 className="image-text bottom">{bottomTextInput}</h1>

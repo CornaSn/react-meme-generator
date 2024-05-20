@@ -6,7 +6,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #dcdcdc; /* Hintergrundfarbe für bessere Sichtbarkeit */
+  background-color: #e0dbdb;
 }
 
 .style-form {
@@ -17,8 +17,8 @@ body {
 }
 
 .container {
-  background-color: #b8b8d6; /* Leichte Hintergrundfarbe für Kontrast */
-  max-width: 50%; /* Maximalbreite für die Containergröße */
+  background-color: #b8b8d6;
+  max-width: 60%;
   padding: 1.5rem;
   margin: auto;
   border-radius: 3%;
@@ -60,7 +60,7 @@ body {
 .image-wrapper {
   position: relative;
   width: 100%;
-  max-width: 500px;
+  max-width: 60rem;
   margin: 1rem 0;
 }
 
