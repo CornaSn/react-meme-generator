@@ -38,6 +38,7 @@ export default function TopBottomText(props) {
             className="image"
             src={props.memesArray[props.imageIndex].blank}
             alt={props.memesArray[props.imageIndex].name}
+            data-test-id="meme-image"
             role="presentation"
             onClick={handleClickBigImg}
           />

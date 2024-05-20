@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import FetchData from './Components/FetchData';
 import Header from './Components/Header';
-import Memes from './Components/Memes';
+import MemesTemplate from './Components/MemesTemplate';
 import TopBottomText from './Components/TopBottomText';
 import styles from './styles.modules.scss';
 
 export default function App() {
   const [memesArray, setMemesArray] = useState([]);
-  const [imageIndex, setImageIndex] = useState(0);
+  const [imageIndex, setImageIndex] = useState(9);
+  const [searchMeme, setSearchMeme] = useState('');
 
   return (
     <div className="body">
@@ -31,8 +32,16 @@ export default function App() {
       </div>
 
       <br />
-      <br />
-      <Memes memesArray={memesArray} setImageIndex={setImageIndex} />
+      <div>
+        {memesArray.length > 0 && (
+          <MemesTemplate
+            memesArray={memesArray}
+            setImageIndex={setImageIndex}
+            searchMeme={searchMeme}
+            setSearchMeme={setSearchMeme}
+          />
+        )}
+      </div>
       <br />
     </div>
   );
