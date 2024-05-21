@@ -66,7 +66,11 @@ export default function TopBottomText(props) {
         <br />
         <br />
         <br />
-        <button type="button" onClick={startDownload}>
+        <button
+          className="download-button"
+          type="button"
+          onClick={startDownload}
+        >
           Download
         </button>
       </div>
