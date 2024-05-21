@@ -1,13 +1,31 @@
+import axios from 'axios';
 import { useState } from 'react';
 
 export default function TopBottomText(props) {
   const [topTextInput, setTopTextInput] = useState('');
   const [bottomTextInput, setBottomTextInput] = useState('');
 
-  //Get random meme image
+  // Get random meme image
   function handleClickBigImg(event) {
     const randomImg = Math.floor(Math.random() * props.memesArray.length);
     props.setImageIndex(randomImg);
+  }
+
+  // Download image
+  async function startDownload() {
+    const memeNameString = props.memesArray[props.imageIndex].id;
+    const urlString = `https://api.memegen.link/images/${memeNameString}/${topTextInput}/${bottomTextInput}.png`;
+    // get data using axios
+    const results = await axios({
+      url: urlString,
+      method: 'GET',
+      responseType: 'blob',
+    });
+    const hiddenA = document.createElement('a');
+    hiddenA.href = window.URL.createObjectURL(new Blob([results.data]));
+    hiddenA.setAttribute('download', 'download_image.jpg');
+    document.body.appendChild(hiddenA);
+    hiddenA.click();
   }
 
   return (
@@ -48,7 +66,9 @@ export default function TopBottomText(props) {
         <br />
         <br />
         <br />
-        <button className="download-button">Download</button>
+        <button type="button" onClick={startDownload}>
+          Download
+        </button>
       </div>
     </form>
   );

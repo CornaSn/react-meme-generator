@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 export default function FetchData(props) {
-  //Fetch image data from website into an array as an object
+  // Fetch image data from website into an array as an object
   useEffect(() => {
     fetch('https://api.memegen.link/templates/')
       .then((response) => {

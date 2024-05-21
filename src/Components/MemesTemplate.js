@@ -4,7 +4,8 @@ export default function MemesTemplate(props) {
   const [userSearch, setUserSearch] = useState('');
 
   function findMatchingMeme(memesData, name) {
-    if (memesData.name.includes(name)) {
+    const memesDataLowerCase = memesData.name.toLowerCase();
+    if (memesDataLowerCase.includes(name.toLowerCase())) {
       return true;
     } else {
       return false;
@@ -30,7 +31,7 @@ export default function MemesTemplate(props) {
           <input
             className="input-search-label"
             type="search"
-            name="q"
+            name="searchField"
             placeholder="Search for memes"
             aria-label="Search through meme template"
             value={userSearch}
@@ -52,7 +53,7 @@ export default function MemesTemplate(props) {
               key={meme.index}
               src={meme.blank}
               alt="meme"
-              height={100}
+              height={200}
               role="presentation"
               // Select Image from Image Template
               onClick={(event) => {

@@ -79,8 +79,9 @@ body {
   text-transform: uppercase;
   text-shadow: 3px 3px 3px rgb(3, 1, 26);
   letter-spacing: 2px;
-  white-space: nowrap;
+  // white-space: nowrap;
   margin: 0;
+  text-wrap: wrap;
 }
 
 .image-text.top {
@@ -91,7 +92,7 @@ body {
   bottom: 10px;
 }
 
-.download-button {
+.btn {
   font-size: 35px;
   margin-top: 20px;
   padding: 14px 40px;
@@ -99,7 +100,7 @@ body {
   border-radius: 12px;
   transition-duration: 0.4s;
 }
-.download-button:hover {
+.btn:hover {
   background-color: rgba(13, 133, 9, 0.795);
   color: white;
 }

@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import html2canvas from 'html2canvas';
+import { useRef, useState } from 'react';
 import FetchData from './Components/FetchData';
 import Header from './Components/Header';
 import MemesTemplate from './Components/MemesTemplate';
@@ -17,7 +18,6 @@ export default function App() {
       <Header />
       <br />
       <FetchData memesArray={memesArray} setMemesArray={setMemesArray} />
-      <br />
       <br />
       <br />
       <div className="container">
