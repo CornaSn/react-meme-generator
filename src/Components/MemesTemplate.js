@@ -46,7 +46,7 @@ export default function MemesTemplate(props) {
           </button>
         </label>
       </div>
-      <div className="Meme-template">
+      {/* <div className="Meme-template">
         {props.memesArray.length > 0 &&
           props.memesArray.map((meme, index) => (
             <img
@@ -62,7 +62,7 @@ export default function MemesTemplate(props) {
               }}
             />
           ))}
-      </div>
+      </div> */}
     </>
   );
 }
