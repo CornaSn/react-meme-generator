@@ -3,6 +3,7 @@ import FetchData from './Components/FetchData';
 import Header from './Components/Header';
 import MemesTemplate from './Components/MemesTemplate';
 import TopBottomText from './Components/TopBottomText';
+import styles from './styles.modules.scss';
 
 export default function App() {
   const [memesArray, setMemesArray] = useState([]);
@@ -16,7 +17,7 @@ export default function App() {
       <Header />
       <br />
       <FetchData memesArray={memesArray} setMemesArray={setMemesArray} />
-      <br />
+      <br />2
       <br />
       <div className="container">
         {/* Check if fetched array is loaded */}
@@ -28,7 +29,6 @@ export default function App() {
           />
         )}
       </div>
-
       <br />
       <div>
         {memesArray.length > 0 && (
