@@ -1,10 +1,8 @@
-import html2canvas from 'html2canvas';
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import FetchData from './Components/FetchData';
 import Header from './Components/Header';
 import MemesTemplate from './Components/MemesTemplate';
 import TopBottomText from './Components/TopBottomText';
-import styles from './styles.modules.scss';
 
 export default function App() {
   const [memesArray, setMemesArray] = useState([]);
