@@ -4,6 +4,9 @@ import { useState } from 'react';
 export default function TopBottomText(props) {
   const [topTextInput, setTopTextInput] = useState('');
   const [bottomTextInput, setBottomTextInput] = useState('');
+  const [downloadLink, setDownloadLink] = useState(
+    'https://api.memegen.link/images/fetch/its/impossible',
+  );
 
   // Get random meme image
   function handleClickBigImg() {
@@ -11,10 +14,38 @@ export default function TopBottomText(props) {
     props.setImageIndex(randomImg);
   }
 
+  // Update meme  link
+  function onChangeMemeLinkTop(event) {
+    const memeLink =
+      'https://api.memegen.link/images' +
+      '/' +
+      props.memesArray[props.imageIndex].id +
+      '/' +
+      topTextInput +
+      '/' +
+      bottomTextInput;
+
+    setDownloadLink(memeLink.replace(' ', '_'));
+  }
+
+  function onChangeMemeLinkBottom(event) {
+    const memeLink =
+      'https://api.memegen.link/images' +
+      '/' +
+      props.memesArray[props.imageIndex].id +
+      '/' +
+      topTextInput +
+      '/' +
+      bottomTextInput;
+
+    setDownloadLink(memeLink.replace(' ', '_'));
+  }
+
   // Download image
   async function startDownload() {
     const memeNameString = props.memesArray[props.imageIndex].id;
     const urlString = `https://api.memegen.link/images/${memeNameString}/${topTextInput}/${bottomTextInput}.png`;
+
     // get data using axios
     const results = await axios({
       url: urlString,
@@ -37,7 +68,10 @@ export default function TopBottomText(props) {
             className="text-input top-input"
             placeholder="Insert top text here..."
             value={topTextInput}
-            onChange={(event) => setTopTextInput(event.currentTarget.value)}
+            onChange={(event) => {
+              setTopTextInput(event.currentTarget.value);
+              onChangeMemeLinkTop();
+            }}
           />
         </label>
         <br />
@@ -47,24 +81,25 @@ export default function TopBottomText(props) {
             className="text-input bottom-input"
             placeholder="Insert bottom text here..."
             value={bottomTextInput}
-            onChange={(event) => setBottomTextInput(event.currentTarget.value)}
+            onChange={(event) => {
+              setBottomTextInput(event.currentTarget.value);
+              onChangeMemeLinkBottom();
+            }}
           />
         </label>
         <br />
         <div className="image-wrapper">
           <img
             className="image"
-            src={props.memesArray[props.imageIndex].blank}
+            src={downloadLink}
             alt={props.memesArray[props.imageIndex].name}
             data-test-id="meme-image"
             role="presentation"
             onClick={handleClickBigImg}
           />
-          <h1 className="image-text top">{topTextInput}</h1>
-          <h1 className="image-text bottom">{bottomTextInput}</h1>
         </div>
         <br />
-        <br />
+
         <br />
         <button
           className="download-button"

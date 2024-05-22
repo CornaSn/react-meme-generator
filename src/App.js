@@ -7,7 +7,7 @@ import TopBottomText from './Components/TopBottomText';
 
 export default function App() {
   const [memesArray, setMemesArray] = useState([]);
-  const [imageIndex, setImageIndex] = useState(9);
+  const [imageIndex, setImageIndex] = useState(67);
   const [searchMeme, setSearchMeme] = useState('');
 
   return (
