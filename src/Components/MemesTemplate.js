@@ -5,14 +5,10 @@ export default function MemesTemplate(props) {
 
   function findMatchingMeme(memesData, name) {
     const memesDataLowerCase = memesData.name.toLowerCase();
-    if (memesDataLowerCase.includes(name.toLowerCase())) {
-      return true;
-    } else {
-      return false;
-    }
+    return !!memesDataLowerCase.includes(name.toLowerCase());
   }
 
-  function handleClickSearch(event) {
+  function handleClickSearch() {
     const searchMemeIndex = props.memesArray.findIndex((element) => {
       return findMatchingMeme(element, userSearch);
     });
@@ -46,11 +42,11 @@ export default function MemesTemplate(props) {
           </button>
         </label>
       </div>
-      {/* <div className="Meme-template">
+      <div className="Meme-template">
         {props.memesArray.length > 0 &&
           props.memesArray.map((meme, index) => (
             <img
-              key={meme.index}
+              key={`${meme.index}`}
               src={meme.blank}
               alt="meme"
               height={200}
@@ -62,7 +58,7 @@ export default function MemesTemplate(props) {
               }}
             />
           ))}
-      </div> */}
+      </div>
     </>
   );
 }

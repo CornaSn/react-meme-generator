@@ -6,7 +6,7 @@ export default function TopBottomText(props) {
   const [bottomTextInput, setBottomTextInput] = useState('');
 
   // Get random meme image
-  function handleClickBigImg(event) {
+  function handleClickBigImg() {
     const randomImg = Math.floor(Math.random() * props.memesArray.length);
     props.setImageIndex(randomImg);
   }

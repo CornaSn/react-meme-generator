@@ -11,7 +11,7 @@ export default function FetchData(props) {
         props.setMemesArray(data);
       })
       .catch((err) => console.log(err));
-  }, [props.memesArray]);
+  });
 
   // // Check fetch data
   // props.memesArray.length > 0
