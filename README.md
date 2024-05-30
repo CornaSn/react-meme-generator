@@ -20,3 +20,7 @@ It should allow the user to:
     4. Hit enter
 - [ ] Download the meme by clicking on a button
   - [ ] The button element needs to contain the text `Download`
+
+
+## Credits
+This is a React project I completed during the PERN-extensive (Immersive) Spring 2024 bootcamp at [UpLeveled](https://github.com/upleveled)
